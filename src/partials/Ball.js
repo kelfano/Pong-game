@@ -17,7 +17,11 @@ reset() {
   this.y = this.boardHeight/2;
 
   //generate a random number between -5 and 5
-  this.vy = Math.floor(Math.random() * 10 - 5); 
+  this.vy = 0;
+
+  while(this.vy === 0){
+    this.vy = Math.floor(Math.random() * 10 - 5); 
+  }
 
   //a number between -5 and 5, based on the vy
   this.vx = this.direction * (6 - Math.abs(this.vy));
@@ -27,7 +31,6 @@ reset() {
 render(svg){
   this.x += this.vx;
   this.y += this.vy;
-  
   let ball = document.createElementNS(SVG_NS,'circle');
   ball.setAttributeNS(null, 'r',this.radius);
   ball.setAttributeNS(null, 'cx',this.x);
