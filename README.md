@@ -47,6 +47,7 @@ A basic pong game using SVGs. Most of the scripting writings are written in java
 * ▲ : up
 * ▼: down
 
+**Additional**
 * spaceBar: pause
 
 

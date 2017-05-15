@@ -6,7 +6,7 @@ export default class Ball {
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
     this.direction = 1;
-    this.ping = new Audio('public/sounds/pong-04.wav');
+    this.ping = new Audio('public/sounds/pong-01.wav');
 
     //Center ball in board initially
     this.reset();
@@ -38,7 +38,6 @@ export default class Ball {
     } else if (hitTop || hitBottom) {
       this.vy = -this.vy;
     }
-
   }
 
   paddleCollision(player1, player2) {
@@ -48,18 +47,13 @@ export default class Ball {
       let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
       let [leftX, rightX, topY, bottomY] = paddle;
 
-
-      if (
+    if (
         this.x + this.radius >= leftX
         && this.x + this.radius <= rightX
         && this.y >= topY
         && this.y <= bottomY
-
-        //right edge of the ball >= left edge of the paddle
-        // && right edge of the ball <=right edge of the paddle
-        // && the ball Y is >= the top edge of the paddle
-        // && the ball Y is <= the bottom edge of the paddle
-      ) {
+      ) 
+      {
         this.vx = -this.vx;
         this.ping.play();
       }
@@ -73,8 +67,8 @@ export default class Ball {
         && this.x - this.radius >= leftX
         && this.y >= topY
         && this.y <= bottomY
-
-      ) {
+       )
+       {
         this.vx = -this.vx;
         this.ping.play();
       }
